@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="Brendan_Stock_Media_Distributor.KeywordsDisplay"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Brendan_Stock_Media_Distributor"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="200">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Keywords" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" FontWeight="Bold" FontSize="20" Grid.ColumnSpan="2"/>
+        <Button Name="generateButton" Content="Generate Keywords" Grid.Row="1" FontWeight="Bold" FontSize="15"/>
+        <Button Name="clearButton" Content="Clear" Grid.Row="1" FontWeight="Bold" FontSize="15" Grid.Column="1"/>
+        <Label Name="keywordsCountLabel" Content="0" Grid.Row="2" Grid.ColumnSpan="2" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
+        <ScrollViewer Grid.Row="3" Grid.ColumnSpan="2">
+            <local:WrapList x:Name="keywordsDisplay"/>
+        </ScrollViewer>
+        <Button Name="removeButton" Content="Remove" Grid.Row="4" FontWeight="Bold" FontSize="15" Grid.ColumnSpan="2"/>
+        <Grid Grid.Row="5" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="100"/>
+            </Grid.ColumnDefinitions>
+            <TextBox Name="inputText" VerticalContentAlignment="Center"/>
+            <Button Name="addButton" Content="Add" Grid.Column="1" FontWeight="Bold" FontSize="15"/>
+        </Grid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,145 @@
+﻿<Window x:Class="Brendan_Stock_Media_Distributor.Settings"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Brendan_Stock_Media_Distributor"
+        mc:Ignorable="d"
+        Title="Brendan Stock Media Distributor - Settings" Height="600" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <ScrollViewer>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="285"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="95"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="90"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <GroupBox Header="Save Location" Margin="5" Grid.Row="1" Grid.Column="0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Directory Path" FontWeight="Bold" Grid.Column="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
+                        <TextBox Name="localPath" Grid.Column="1" VerticalContentAlignment="Center"/>
+                    </Grid>
+                </GroupBox>
+                <GroupBox Header="Backup Location" Margin="5" Grid.Row="1" Grid.Column="1" IsEnabled="false">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="230"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <RadioButton Name="noBackupRadio" Content="None"></RadioButton>
+                        <local:LocationSelector x:Name="backupLocationSelector" Grid.Row="1"/>
+                    </Grid>
+                </GroupBox>
+                <GroupBox Header="Google Vertex AI" Margin="5" Grid.Row="4" Grid.Column="0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Project ID" FontWeight="Bold" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+                        <TextBox Name="googleVertexAIProjectId" Grid.Column="1" VerticalContentAlignment="Center"/>
+                        <Label Content="Access Token" FontWeight="Bold" Grid.Row="1" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+                        <TextBox Name="googleVertexAIAccessToken" Grid.Row="1" Grid.Column="1" VerticalContentAlignment="Center"/>
+                    </Grid>
+                </GroupBox>
+                <GroupBox Header="Everypixel Labs" Margin="5" Grid.Row="4" Grid.Column="1">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Client ID" FontWeight="Bold" Grid.Column="0" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+                        <TextBox Name="everypixelLabsClientID" Grid.Column="1" VerticalContentAlignment="Center"/>
+                        <Label Content="Secret" Grid.Row="1" FontWeight="Bold" Grid.Column="0" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+                        <TextBox Name="everypixelLabsSecret" Grid.Column="1" Grid.Row="1" VerticalContentAlignment="Center"/>
+                    </Grid>
+                </GroupBox>
+                <Grid Grid.Row="6" Grid.ColumnSpan="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Title" FontWeight="Bold" Grid.Column="0" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+                    <ComboBox Name="titleFromWhat" Grid.Column="1" VerticalContentAlignment="Center" SelectedIndex="0">
+                        <ComboBoxItem Content="Image"/>
+                        <ComboBoxItem Content="Description"/>
+                    </ComboBox>
+                    <Label Content="Description" Grid.Row="1" FontWeight="Bold" Grid.Column="0" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+                    <ComboBox Name="descriptionFromWhat" Grid.Row="1" Grid.Column="1" VerticalContentAlignment="Center" SelectedIndex="0" IsEnabled="False">
+                        <ComboBoxItem Content="Image"/>
+                    </ComboBox>
+                    <Label Content="Categories" Grid.Row="2" FontWeight="Bold" Grid.Column="0" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+                    <ComboBox Name="categoriesFromWhat" Grid.Row="2" Grid.Column="1" VerticalContentAlignment="Center" SelectedIndex="0">
+                        <ComboBoxItem Content="Image"/>
+                        <ComboBoxItem Content="Title"/>
+                        <ComboBoxItem Content="Description"/>
+                        <ComboBoxItem Content="Keywords"/>
+                    </ComboBox>
+                    <Label Content="Keywords" Grid.Row="3" FontWeight="Bold" Grid.Column="0" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+                    <ComboBox Name="keywordsFromWhat" Grid.Row="3" Grid.Column="1" VerticalContentAlignment="Center" SelectedIndex="0" IsEnabled="False">
+                        <ComboBoxItem Content="Image"/>
+                    </ComboBox>
+                </Grid>
+                <Label Grid.Column="1" Content="Unfortunately, backups are currently not yet implemented." Grid.Row="2" HorizontalContentAlignment="Center"/>
+                <Label Grid.Row="0" Grid.ColumnSpan="2" Content="Save &amp; Backup Locations" HorizontalContentAlignment="Center" FontWeight="Bold"/>
+                <Label Grid.Row="3" Grid.ColumnSpan="2" Content="API Keys" HorizontalContentAlignment="Center" FontWeight="Bold"/>
+                <Label Grid.Row="5" Grid.ColumnSpan="2" Content="Cost Optimizations" HorizontalContentAlignment="Center" FontWeight="Bold"/>
+                </Grid>
+        </ScrollViewer>
+        <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Name="resetButton" Content="Reset to Defaults" Grid.Column="1"/>
+            <Button Name="revertButton" Content="Revert" Grid.Column="0"/>
+            <Button Name="saveButton" Content="Save" Grid.Column="2"/>
+        </Grid>
+     </Grid>
+</Window>

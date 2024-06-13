@@ -1,0 +1,72 @@
+﻿<UserControl x:Class="Brendan_Stock_Media_Distributor.LocationSelector"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Brendan_Stock_Media_Distributor"
+             mc:Ignorable="d" 
+             d:MinHeight="500"
+             d:DesignHeight="500"
+             d:DesignWidth="450">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="48"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <RadioButton Name="localRB" Content="Local" HorizontalAlignment="Left" VerticalAlignment="Center" Height="15" Width="378" Grid.Row="0"/>
+        <GroupBox Name="localGB" Header="Local Location" Grid.Row="1" IsEnabled="False">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label Content="Directory Path" FontWeight="Bold" Grid.Column="0" HorizontalContentAlignment="Right"/>
+                <TextBox Name="localPath" Grid.Column="1" VerticalContentAlignment="Center"/>
+            </Grid>
+        </GroupBox>
+        <RadioButton Name="cloudRB" Content="Cloud" HorizontalAlignment="Left" VerticalAlignment="Center" Height="15" Width="378" Grid.Row="2"/>
+        <GroupBox Name="cloudGB" Header="Cloud Location" Grid.Row="3" IsEnabled="False">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label Content="Protocol" FontWeight="Bold" Grid.Column="0" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+                <Label Content="Host Name" FontWeight="Bold" Grid.Row="1" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+                <Label Content="Directory Path" FontWeight="Bold" Grid.Row="2" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+                <Label Content="Username" FontWeight="Bold" Grid.Row="3" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+                <Label Content="Password" FontWeight="Bold" Grid.Row="4" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+                <ComboBox Name="cloudProtocol" Grid.Column="1" VerticalContentAlignment="Center">
+                    <ComboBoxItem Content="FTP"/>
+                    <ComboBoxItem Content="FTPS"/>
+                </ComboBox>
+                <TextBox Name="cloudHostName" Grid.Column="1" Grid.Row="1" VerticalContentAlignment="Center"/>
+                <TextBox Name="cloudUsername" Grid.Column="1" Grid.Row="3" VerticalContentAlignment="Center"/>
+                <TextBox Name="cloudPassword" Grid.Column="1" Grid.Row="4" VerticalContentAlignment="Center"/>
+                <Grid Grid.Column="1" Grid.Row="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="15"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="/" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
+                    <TextBox Name="cloudPath" Grid.Column="1" Grid.Row="2" VerticalContentAlignment="Center"/>
+                </Grid>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</UserControl>

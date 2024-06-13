@@ -1,0 +1,109 @@
+﻿<Window x:Class="Brendan_Stock_Media_Distributor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Brendan_Stock_Media_Distributor"
+        mc:Ignorable="d"
+        Title="Brendan Stock Media Distributor" Height="450" Width="800" WindowState="Maximized">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="350"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="350"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Menu Grid.ColumnSpan="3">
+            <MenuItem Name="settingsItem" Header="Settings"/>
+            <MenuItem Name="addMedia" Header="Add Media">
+                <MenuItem Name="addFiles" Header="Add Files"/>
+                <MenuItem Name="addDirectory" Header="Add Directory"/>
+            </MenuItem>
+        </Menu>
+        <Menu Grid.Row="1" Grid.Column="1">
+            <MenuItem Header="Filters:" IsEnabled="False"/>
+            <MenuItem Header="Media Type" StaysOpenOnClick="True">
+                <MenuItem Name="letImages" IsCheckable="True" Header="Images"/>
+                <MenuItem Name="letVideos" IsCheckable="True" Header="Videos"/>
+            </MenuItem>
+        </Menu>
+        <Label Name="itemsCountLabel" Content="0 item(s) found" Grid.Column="1" Grid.Row="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <ScrollViewer Name="itemsViewer" Grid.Column="1" Grid.Row="3">
+            <WrapPanel Name="itemsPanel"/>
+        </ScrollViewer>
+        <local:MediaDetailedDisplay x:Name="detailedDisplay" Grid.Row="1" Grid.RowSpan="3"/>
+        <TabControl Name="rightPane" Grid.Row="1" Grid.Column="2" Grid.RowSpan="3" BorderThickness="0" IsEnabled="False">
+            <TabItem Header="Metadata">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition/>
+                        <RowDefinition Height="40"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button Name="generateAllButton" Content="Generate All" FontWeight="Bold" FontSize="15" Grid.ColumnSpan="3"/>
+                    <ScrollViewer Grid.Row="1" Grid.ColumnSpan="3">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="300"/>
+                                <RowDefinition Height="220"/>
+                                <RowDefinition Height="300"/>
+                                <RowDefinition Height="130"/>
+                            </Grid.RowDefinitions>
+                            <local:CaptionsDisplay x:Name="captionsDisplay"/>
+                            <local:CategoryDisplay x:Name="categoryDisplay" Grid.Row="1"/>
+                            <local:KeywordsDisplay x:Name="keywordsDisplay" Grid.Row="2"/>
+                            <local:OptionsDisplay x:Name="optionsDisplay" Grid.Row="3"/>
+                        </Grid>
+                    </ScrollViewer>
+                    <Button Name="clearAllButton" Content="Clear All" FontWeight="Bold" FontSize="15" Grid.Row="2"/>
+                    <Button Name="revertButton" Content="Revert Changes" FontWeight="Bold" FontSize="15" Grid.Row="2" Grid.Column="1"/>
+                    <Button Name="saveButton" Content="Save" FontWeight="Bold" FontSize="15" Grid.Row="2" Grid.Column="2"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Publishing">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Button Name="exportButton_shutterstock" Content="Export Media with Shutterstock CSV" FontWeight="Bold" FontSize="15"/>
+                    <Button Name="exportButton_adobeStock" Content="Export Media with Adobe Stock CSV" Grid.Row="1" FontWeight="Bold" FontSize="15"/>
+                    <Button Name="exportButton" Content="Export Media with all CSVs" Grid.Row="3" FontWeight="Bold" FontSize="15"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="File">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Label Content="File Circulation" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="20"/>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Button Name="copyToButton" FontWeight="Bold" FontSize="15">
+                            <TextBlock Text="Copy to External Destination" TextWrapping="Wrap" TextAlignment="Center"/>
+                        </Button>
+                        <Button Name="deleteButton" Content="Delete Forever" FontWeight="Bold" FontSize="15" Grid.Column="1" Background="Red"/>
+                    </Grid>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
